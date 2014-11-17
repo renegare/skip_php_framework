@@ -1,5 +1,5 @@
 {
-    "name": "renegare/skip",
+    "name": "renegare/skip_php_framework",
     "description": "A simple (hopefully) scalable framework to get you going ASAP but allowing you the freedom of composer and power of silex",
     "require": {
         "silex/silex": "v1.1.2",
@@ -33,7 +33,7 @@
             "email": "mudi@renegare.com"
         }
     ],
-    
+
     "autoload": {
         "psr-0": {
             "Skip": "src"
