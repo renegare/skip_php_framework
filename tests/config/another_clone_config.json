@@ -1,0 +1,8 @@
+{
+	
+	"param": [
+		{
+			"clone": "@clone original_value"
+		}
+	]
+}

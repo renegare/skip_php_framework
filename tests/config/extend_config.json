@@ -1,0 +1,4 @@
+{
+	"@extend":"base_config.json",
+	"setting":"extend"
+}

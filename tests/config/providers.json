@@ -1,0 +1,9 @@
+{
+	"twig": {
+		"class": "\\Silex\\Provider\\TwigServiceProvider",
+		"types": ["service"],
+		"params": {
+			"twig.path": "#SKIP_REPLACE_VALUE#/server/views"
+		}
+	}
+}

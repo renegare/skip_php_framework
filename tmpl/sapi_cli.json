@@ -1,0 +1,8 @@
+{
+    "@extend": "generic.json",
+    "sapi": "cli",
+    "console": {
+        "commands": "@import ../app/commands.json",
+        "helpers": "@import ../app/command_helpers.json"
+    }
+}

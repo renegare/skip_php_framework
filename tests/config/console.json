@@ -1,0 +1,37 @@
+{
+    "debug": true,
+    "settings": {
+        "setting1": 1,
+        "setting2": "two",
+        "hello_greeting": "Nice name you got there, %s."
+    },
+
+    "console": {
+        "commands": [
+            {
+                "class": "\\Skip\\Tests\\Dummy\\TestServiceCommand",
+                "set": {
+                    "test_service": "test"
+                }
+            },
+            "\\Skip\\Tests\\Dummy\\TestCommand",
+            "\\Skip\\Tests\\Dummy\\TestHelperCommand"
+        ],
+
+        "helpers": {
+            "helper_1": "\\Skip\\Tests\\Dummy\\TestCommandHelper"
+        }
+    }
+    /*
+     * the service below will be created at runtime of tests
+     *
+
+    "services"
+        "test": {
+            "class": "Skip\\Tests\\Dummy\\TestModel",
+            "type": "share",
+        }
+    }
+    */
+
+}

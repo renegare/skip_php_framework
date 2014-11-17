@@ -1,0 +1,49 @@
+{
+    "name": "renegare/skip",
+    "description": "A simple (hopefully) scalable framework to get you going ASAP but allowing you the freedom of composer and power of silex",
+    "require": {
+        "silex/silex": "v1.1.2",
+        "seld/jsonlint": "1.1.1",
+        "symfony/console": "v2.3.1",
+        "twig/twig": "v1.12.1",
+        "doctrine/migrations": "v1.0-ALPHA1",
+        "symfony/yaml": "v2.3.1",
+        "swiftmailer/swiftmailer": "4.2.2",
+        "symfony/form": "v2.3.1",
+        "symfony/validator": "v2.3.1",
+        "symfony/translation": "v2.3.1",
+        "symfony/twig-bridge": "v2.3.1",
+        "symfony/config": "v2.3.1",
+        "silex/web-profiler": "~1.0",
+        "symfony/web-profiler-bundle": ">=2.2,<2.4-dev"
+    },
+
+    "require-dev": {
+        "symfony/browser-kit": ">=2.3,<2.4-dev",
+        "react/react": "v0.2.7",
+        "phake/phake": "v1.0.3",
+        "phpunit/phpunit": "3.7.*",
+        "phpunit/dbunit": ">=1.2"
+    },
+
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "renegare",
+            "email": "mudi@renegare.com"
+        }
+    ],
+    
+    "autoload": {
+        "psr-0": {
+            "Skip": "src"
+        }
+    },
+
+    "bin": ["bin/skip"],
+
+    "config": {
+        "bin-dir": "bin"
+    }
+
+}

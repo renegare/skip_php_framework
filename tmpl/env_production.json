@@ -1,0 +1,5 @@
+{
+    "@extend": "../sapi/#SAPI#.json",
+    "env": "production",
+    "debug": false
+}

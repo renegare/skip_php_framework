@@ -1,0 +1,59 @@
+{
+    "init": {
+        "dirs": {
+            "app_src": "#APP_ROOT#/app/src/App",
+            "app_user_settings": "#APP_ROOT#/app/config/user",
+            "app_env_settings": "#APP_ROOT#/app/config/env",
+            "app_sapi_settings": "#APP_ROOT#/app/config/sapi",
+            "app_app_settings": "#APP_ROOT#/app/config/app",
+            "app_resource": "#APP_ROOT#/app/resource",
+            "app_views": "#APP_ROOT#/app/views",
+            "app_logs": "#APP_ROOT#/app/log",
+            "app_tmp": "#APP_ROOT#/app/tmp",
+            "app_test_src": "#APP_ROOT#/app/test/src/App",
+            "app_public": "#APP_ROOT#/app/public",
+            "app_migrations": "#APP_ROOT#/app/migrations",
+            "app_form_configs": "#APP_ROOT#/app/config/app/forms"
+        },
+        "files": [
+            { "src": "#LIB_ROOT#/tmpl/user_bob.json", "dest": "#APP_ROOT#/app/config/user/bob.json"},
+
+            { "src": "#LIB_ROOT#/tmpl/env_production.json", "dest": "#APP_ROOT#/app/config/env/production.json"},
+            { "src": "#LIB_ROOT#/tmpl/env_test.json", "dest": "#APP_ROOT#/app/config/env/test.json"},
+            { "src": "#LIB_ROOT#/tmpl/env_development.json", "dest": "#APP_ROOT#/app/config/env/development.json"},
+
+            { "src": "#LIB_ROOT#/tmpl/sapi_cli.json", "dest": "#APP_ROOT#/app/config/sapi/cli.json"},
+            { "src": "#LIB_ROOT#/tmpl/sapi_public.json", "dest": "#APP_ROOT#/app/config/sapi/public.json"},
+            { "src": "#LIB_ROOT#/tmpl/sapi_generic.json", "dest": "#APP_ROOT#/app/config/sapi/generic.json"},
+
+            { "src": "#LIB_ROOT#/tmpl/app_settings.json", "dest": "#APP_ROOT#/app/config/app/settings.json"},
+            { "src": "#LIB_ROOT#/tmpl/app_services.json", "dest": "#APP_ROOT#/app/config/app/services.json"},
+            { "src": "#LIB_ROOT#/tmpl/app_controllers.json", "dest": "#APP_ROOT#/app/config/app/controllers.json"},
+            { "src": "#LIB_ROOT#/tmpl/app_commands.json", "dest": "#APP_ROOT#/app/config/app/commands.json"},
+            { "src": "#LIB_ROOT#/tmpl/app_command_helpers.json", "dest": "#APP_ROOT#/app/config/app/command_helpers.json"},
+
+            { "src": "#LIB_ROOT#/tmpl/public_index.php", "dest": "#APP_ROOT#/app/public/index.php"},
+
+            { "src": "#LIB_ROOT#/tmpl/test_bootstrap.php", "dest": "#APP_ROOT#/app/test/bootstrap.php"},
+
+            { "src": "#LIB_ROOT#/tmpl/migrations.yml", "dest": "#APP_ROOT#/migrations.yml"},
+
+            { "src": "#LIB_ROOT#/tmpl/app_models.json", "dest": "#APP_ROOT#/app/config/app/models.json"},
+            { "src": "#LIB_ROOT#/tmpl/form_contact.json", "dest": "#APP_ROOT#/app/config/app/forms/contact.json"},
+
+            /* Keep Empty Direcotries */
+            { "src": "#LIB_ROOT#/tmpl/.keep", "dest": "#APP_ROOT#/app/tmp/.keep"},
+            { "src": "#LIB_ROOT#/tmpl/.keep", "dest": "#APP_ROOT#/app/views/.keep"},
+            { "src": "#LIB_ROOT#/tmpl/.keep", "dest": "#APP_ROOT#/app/src/App/.keep"},
+            { "src": "#LIB_ROOT#/tmpl/.keep", "dest": "#APP_ROOT#/app/migrations/.keep"},
+            { "src": "#LIB_ROOT#/tmpl/.keep", "dest": "#APP_ROOT#/app/test/src/App/.keep"},
+            { "src": "#LIB_ROOT#/tmpl/.keep", "dest": "#APP_ROOT#/app/resource/.keep"},
+            { "src": "#LIB_ROOT#/tmpl/.keep", "dest": "#APP_ROOT#/app/log/.keep"},
+
+            /* NPM Stuff */
+            { "src": "#LIB_ROOT#/tmpl/npm_package.json", "dest": "#APP_ROOT#/package.json"},
+            { "src": "#LIB_ROOT#/tmpl/npm_Gruntfile.js", "dest": "#APP_ROOT#/Gruntfile.js"}
+
+        ]
+    }
+}

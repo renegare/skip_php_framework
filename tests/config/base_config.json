@@ -1,0 +1,6 @@
+{
+	"setting":"base",
+	"original":"base",
+	"providers": "@import providers.json",
+	"const": "#SKIP_REPLACE_VALUE#/WTF"
+}

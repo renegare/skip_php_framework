@@ -1,0 +1,15 @@
+{
+    /** 
+    * default helpful commands for development, general maintenance and usage 
+    */
+    "console": {
+        "commands": [
+            "Skip\\Console\\Command\\SetupCommand"
+        ]
+    },
+
+    /** 
+    * default application structure that is assumed when using the skip framework
+    */
+    "framework": "@import framework.json"
+}

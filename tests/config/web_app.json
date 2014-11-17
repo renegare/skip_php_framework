@@ -1,0 +1,20 @@
+{
+    "public": {
+        "controllers":{
+            "home":{
+                "match":"\/{param}",
+                "controller":"Skip\\Tests\\Dummy\\TestController::action",
+                "request_methods":"GET|POST",
+                "convert":{"param":"Skip\\Tests\\Dummy\\TestConvert::convert"},
+                "assert":{"param":"[a-z]+"},
+                "default_values":{"param":"test"}
+            },
+
+            "underscore_test":{
+                "match":"\/underscore",
+                "controller":"Skip\\Tests\\Dummy\\TestController::underscore_action",
+                "request_methods":"GET"
+            }
+        }
+    }
+}

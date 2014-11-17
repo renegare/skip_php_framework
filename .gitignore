@@ -1,0 +1,10 @@
+vendor/
+tmp/
+bin/*
+composer.phar
+composer.lock
+.DS_Store
+!bin/skip
+/app/
+migrations.yml
+code-coverage

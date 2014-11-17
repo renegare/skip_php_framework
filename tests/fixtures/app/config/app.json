@@ -1,0 +1,119 @@
+{
+    "web": {
+        "controllers": {
+            "home": {
+                "match": "/",
+                "controller": "Skip\\Tests\\Dummy\\TestController::indexAction"
+            },
+
+            "system-exception-uri": {
+                "match": "/system-exception-uri",
+                "controller": "Skip\\Tests\\Dummy\\TestController::systemErrorAction"
+            },
+
+            "system-exception-custom-code": {
+                "match": "/system-exception-custom-code",
+                "controller": "Skip\\Tests\\Dummy\\TestController::systemErrorCustomCodeAction"
+            },
+
+            "any-method": {
+                "match": "/any-method",
+                "controller": "Skip\\Tests\\Dummy\\TestController::multiMethodAction"
+            },
+
+            "single-method": {
+                "match": "/single-method",
+                "controller": "Skip\\Tests\\Dummy\\TestController::multiMethodAction",
+                "request_methods": "DELETE"
+            },
+
+            "multi-methods": {
+                "match": "/multi-methods",
+                "controller": "Skip\\Tests\\Dummy\\TestController::multiMethodAction",
+                "request_methods": ["GET", "POST"]
+            },
+
+            "root": {
+                "mount": "root",
+                "controllers": {
+                    "sub1": {
+                        "mount": "sub1",
+                        "controllers": {
+                            "sub2": {
+                                "match": "sub2",
+                                "controller": "Skip\\Tests\\Dummy\\TestController::indexAction"
+                            }
+                        }
+                    }
+                }
+            },
+
+            "convert-param-route" : {
+                "match": "convert-param-route/{number}",
+                "controller": "Skip\\Tests\\Dummy\\TestController::convertAction",
+                "assert": {
+                    "number": "\\d+"
+                },
+                "default_values": {
+                    "number": 10
+                },
+                "convert": {
+                    "number": "Skip\\Tests\\Dummy\\TestController::doubleNumber"
+                },
+                "response_headers": {
+                    "skip-developer": "Mudi"
+                }
+            },
+
+            "middle-ware-route": {
+                "match": "/middle-ware-route",
+                "controller": "Skip\\Tests\\Dummy\\TestController::indexAction",
+                "middleware": [
+                    { "type": "before", "method": "Skip\\Tests\\Dummy\\TestRouteHook::mwrAppBeforeA", "priority": -1 },
+                    { "type": "before", "method": "Skip\\Tests\\Dummy\\TestRouteHook::mwrAppBeforeB", "priority": 512 },
+                    { "type": "after", "method": "Skip\\Tests\\Dummy\\TestRouteHook::mwrAppAfterB" },
+                    { "type": "after", "method": "Skip\\Tests\\Dummy\\TestRouteHook::mwrAppAfterA" }
+                ]
+            }
+        },
+
+        "provider": {
+            "testProvider": {
+                "types": ["service", "controller"],
+                "class": "Skip\\Tests\\Dummy\\TestProvider"
+            }
+        },
+
+        "middleware": {
+            "setup_before": "Skip\\Tests\\Dummy\\TestHook::setupBefore",
+            "setup_after": "Skip\\Tests\\Dummy\\TestHook::setupAfter",
+            "webapp": [
+                { "type": "before", "method": "Skip\\Tests\\Dummy\\TestHook::silextAppBeforeA" },
+                { "type": "before", "method": "Skip\\Tests\\Dummy\\TestHook::silextAppBeforeB", "priority": 512 },
+                { "type": "after", "method": "Skip\\Tests\\Dummy\\TestHook::silextAppAfterB" },
+                { "type": "after", "method": "Skip\\Tests\\Dummy\\TestHook::silextAppAfterA" }
+            ]
+        },
+
+        "error_controllers": [
+            "Skip\\Tests\\Dummy\\TestErrorController::errorAction"
+        ]
+    },
+
+    "console": {
+        "commands": [
+            "\\Skip\\Tests\\Dummy\\TestCommand",
+            "\\Skip\\Tests\\Dummy\\TestHelperCommand"
+        ]
+    },
+
+    "core": {
+        "debug": true
+    },
+
+    "settings": {
+        "setting1": 1,
+        "setting2": "two",
+        "hello_greeting": "Nice name you got there, %s."
+    }
+}

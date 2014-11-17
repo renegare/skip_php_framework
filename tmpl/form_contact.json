@@ -1,0 +1,42 @@
+{
+    "fields": {
+
+        "name": {
+            "type": "text",
+            "options": {
+                "label": "Name",
+                "constraints": [
+                    { "class": "not_blank", "options": {
+                            "message": "Please enter your name"
+                        }
+                    }
+                ]
+            }
+        },
+
+        "email": {
+            "type": "text",
+            "options": {
+                "label": "Email Address",
+                "constraints": [
+                    { "class": "not_blank", "options": {
+                            "message": "Please enter your email address"
+                        }
+                     },
+                    { "class": "email", "options": {
+                            "message": "Please enter a valid email address"
+                        }
+                    }
+                ]
+            }
+        },
+
+        "message": {
+            "type": "textarea",
+            "options": {
+                "label": "Your Message"
+            }
+        }
+    }
+
+}

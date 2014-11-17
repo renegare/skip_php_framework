@@ -1,0 +1,9 @@
+{
+    "user": null,
+    "env": null,
+    "debug": true,
+    "sapi": "generic",
+    "settings": "@import ../app/settings.json",
+    "services": "@import ../app/services.json",
+    "framework": "@import #LIB_ROOT#/config/framework.json"
+}

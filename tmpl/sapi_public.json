@@ -1,0 +1,27 @@
+{
+    "@extend": "generic.json",
+    "sapi": "public",
+    "public": {
+        /*
+        * Error controller to handle stuff like 404's etc ...
+        *
+        "error_controllers": [
+            "App\\Controllers\\ErrorController::errorAction"
+        ]
+        */
+
+        "controllers": "@import ../app/controllers.json",
+
+        "providers": {
+            "url_generator": {
+                "class": "Silex\\Provider\\UrlGeneratorServiceProvider",
+                "types": ["service"]
+            },
+
+            "session": {
+                "class": "Silex\\Provider\\SessionServiceProvider",
+                "types": ["service"]
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+/**
+ * List commad classes here. 
+ * Note: If your class implements Skip\ServiceContainerInterface then it will 
+ * automatically get an instance of the app (DI/Pimple/WhateverYouWant2CallIT)
+ **/
+[
+    "Skip\\Console\\Command\\SetupCommand",
+    "Skip\\Console\\Command\\SmtpMailerSpoolCommand",
+    "Skip\\Console\\Command\\BetterDoctrineMigrationGenerateCommand",
+    "Doctrine\\DBAL\\Tools\\Console\\Command\\ImportCommand",
+    "Doctrine\\DBAL\\Tools\\Console\\Command\\ReservedWordsCommand",
+    "Doctrine\\DBAL\\Tools\\Console\\Command\\RunSqlCommand",
+    "Doctrine\\DBAL\\Migrations\\Tools\\Console\\Command\\ExecuteCommand",
+    /* "Doctrine\\DBAL\\Migrations\\Tools\\Console\\Command\\GenerateCommand", */
+    "Doctrine\\DBAL\\Migrations\\Tools\\Console\\Command\\MigrateCommand",
+    "Doctrine\\DBAL\\Migrations\\Tools\\Console\\Command\\StatusCommand",
+    "Doctrine\\DBAL\\Migrations\\Tools\\Console\\Command\\VersionCommand"
+]

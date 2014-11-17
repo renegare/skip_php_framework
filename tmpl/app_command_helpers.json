@@ -1,0 +1,4 @@
+{
+    "db": "Skip\\Console\\Helpers\\DoctrineConnectionHelper",
+    "dialog": "Skip\\Console\\Helpers\\SymfonyDialogHelper"
+}

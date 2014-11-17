@@ -1,0 +1,64 @@
+{
+    /** 
+     * Services are 1st level namespaced. Example service:
+
+    "serviceHandle": {
+        "class": "Namespace\\Class",
+        "type": "share",
+        "dependencies": ["settings/configA", "depB"]
+    }
+
+     * You will be able to access this service from the DI by its handle: `$app['serviceHandle']`
+    */
+
+    /* Some handy built in one ... feel free to remove and adjust as you please */
+
+    "db": {
+        "class": "Skip\\Service\\DatabaseService",
+        "type": "share",
+        "dependencies": ["settings/db.options", "settings/models"]
+    },
+
+    "session": {
+        "class": "Skip\\Service\\SessionService",
+        "type": "share",
+        "dependencies": ["settings/session"]
+    },
+
+    "twig": {
+        "class": "Skip\\Service\\TwigService",
+        "types": ["service"],
+        "dependencies": ["settings/twig", "_di", "translator", "csrf_provider"]
+    },
+
+    "csrf_provider": {
+        "class": "Symfony\\Component\\Form\\Extension\\Csrf\\CsrfProvider\\DefaultCsrfProvider",
+        "types": ["service"],
+        "dependencies": ["settings/csrf_secret"]
+
+    },
+
+    "translator": {
+        "class": "Skip\\Service\\TranslatorService",
+        "types": ["service"],
+        "dependencies": ["settings/translator"]
+    },
+
+    "forms": {
+        "class": "Skip\\Service\\FormService",
+        "types": ["service"],
+        "dependencies": ["settings/forms", "csrf_provider"]
+    },
+
+    "session.storage.handler": {
+        "class": "Skip\\Service\\MemcachedSessionHandlerService",
+        "type": "share",
+        "dependencies": ["settings/memcached_session"]
+    },
+
+    "mailer": {
+        "class": "Skip\\Service\\SmtpMailerService",
+        "types": ["service"],
+        "dependencies": ["settings/smtp"]
+    }
+}

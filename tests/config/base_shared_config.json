@@ -1,0 +1,12 @@
+{
+	"original_value": "shared_value",
+	"clones": {
+		"shared_value1": "@clone original_value",
+		"shared_value2": "@clone original_value",
+		"shared_value3": "@clone settings.original"
+	},
+
+	"settings": "@import base_config.json",
+
+	"import": "@import another_clone_config.json"
+}

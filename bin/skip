@@ -1,0 +1,59 @@
+#!/usr/bin/env php
+<?php
+
+/*
+ * This file is part of the Skip package.
+ *
+ * (c) Mudi Ugbowanko <mudi@renegare.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+$SKIP_LIB_ROOT = dirname( __DIR__ );
+$SKIP_APP_ROOT = dirname( dirname( dirname( $SKIP_LIB_ROOT ) ) );
+
+if( preg_match( '/\/shared$/', $SKIP_APP_ROOT ) ) {
+    $SKIP_APP_ROOT = realpath(preg_replace( '/\/shared$/', '/latest', $SKIP_APP_ROOT ));
+    $SKIP_APP_ROOT = $SKIP_APP_ROOT? $SKIP_APP_ROOT : realpath(preg_replace( '/\/shared$/', '/current', $SKIP_APP_ROOT ));
+}
+
+if ( !$loader = (@include $SKIP_APP_ROOT . '/vendor/autoload.php') ) {
+    die('You must set up the project\'s composer dependencies, run the following commands:'.PHP_EOL.
+        'curl -s http://getcomposer.org/installer | php'.PHP_EOL.
+        'php composer.phar install'.PHP_EOL);
+}
+
+$input = new Symfony\Component\Console\Input\ArgvInput();
+
+$SKIP_ENV = $input->getParameterOption('--SKIP-ENV', null);
+$SKIP_USER = null;
+
+// no env cli
+if( !$SKIP_ENV )
+{
+    // auto check for user, if none ... set env from env variables
+    if( !($SKIP_USER = getenv('SKIP_USER')) )
+    {
+        $SKIP_ENV = getenv('SKIP_ENV');
+    }
+}
+
+$SKIP_ENV = $SKIP_ENV?: 'production';
+
+$config_path = realpath( $SKIP_APP_ROOT . '/app/config/user/' . $SKIP_USER . '.json');
+if( !$config_path )
+{
+    $config_path = realpath( $SKIP_APP_ROOT . '/app/config/env/' . $SKIP_ENV . '.json');
+}
+
+$app = new Skip\Application\Console();
+
+$app->configure( $config_path, array(
+    'ENV' => $SKIP_ENV,
+    'USER' => $SKIP_USER,
+    'APP_ROOT' => $SKIP_APP_ROOT,
+    'LIB_ROOT' => $SKIP_LIB_ROOT
+));
+
+$app->run();

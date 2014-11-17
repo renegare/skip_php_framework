@@ -1,0 +1,12 @@
+{
+    "settings": {
+        "param": "value"
+    },
+
+    "services": {
+        "dummy": {
+            "class": "Skip\\Tests\\Dummy\\TestService",
+            "dependencies": ["settings/param"]
+        }
+    }
+}

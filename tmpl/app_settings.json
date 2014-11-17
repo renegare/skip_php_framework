@@ -1,0 +1,55 @@
+/**
+ * Anythiong goes here!!! as long as it is valid json
+ *
+ * The example below are/or should be ready and available ;)
+ */
+{
+
+    "db.options":{
+        "driver": "pdo_sqlite",
+        "path": "#APP_ROOT#/app.dbsqlite"
+    },
+
+    /* CHANGE THIS !!! */
+    "csrf_secret": "n0t53c8r3",
+
+    "models": "@import models.json",
+
+    "forms": {
+        "schemas": {
+            "contact": "@import forms/contact.json"
+        }
+    },
+
+    "twig": {
+        "paths": [
+            "#APP_ROOT#/app/views",
+            "#APP_ROOT#/vendor/symfony/twig-bridge/Symfony/Bridge/Twig/Resources/views/Form"
+        ],
+        "cache_path": "#APP_ROOT#/app/tmp/twig_cache",
+        "debug": "@clone debug",
+        "built_in_extentions": ["form"]
+    },
+
+    "translator": {
+        "fallback": "en",
+        "resources": [
+            { "format": "xlf", "resource": "#APP_ROOT#/vendor/symfony/form/Symfony/Component/Form/Resources/translations/validators.en.xlf", "locale": "en", "domain": "validators"},
+            { "format": "xlf", "resource": "#APP_ROOT#/vendor/symfony/validator/Symfony/Component/Validator/Resources/translations/validators.en.xlf", "locale": "en", "domain": "validators"}
+        ]
+    },
+
+    "memcached_session": {
+        "servers": [
+            { "port": 11211, "host": "127.0.0.1" }
+        ]
+    },
+
+    "smtp":{
+        "host": "host",
+        "port": 587,
+        "username": "webmaster@example.com",
+        "password": "p455w0rD!",
+        "spool_dir": "#APP_ROOT#/app/tmp/mail_spool"
+    }
+}
