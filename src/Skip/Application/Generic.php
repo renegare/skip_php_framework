@@ -32,10 +32,9 @@
         {
             $configCacheHash = $cache? implode('.', array($appPath, $libPath, $env, $user, $sapi)) : '';
             $config = $cache ? Generic::getConfigCache($configCacheHash) : false;
-            $cacheLockFile = $appPath . '/tmp/config.cache.lock';
 
-            if(!$config || !file_exists($cacheLockFile)) {
-                
+            if(!$config) {
+
                 //@TODO: allow not just json to be loaded
                 $configPath = realpath( sprintf('%s/config/user/%s.json', $appPath, $user) );
                 if( !$configPath ) {
@@ -66,8 +65,6 @@
 
                 if( $cache ) {
                     Generic::setConfigCache($configCacheHash, $config);
-                    //@TODO: do a proper check if the path is writable
-                    @touch($cacheLockFile);
                 } else {
                     Generic::clearConfigCache();
                 }
@@ -78,7 +75,7 @@
             return $config;
 
         }
-        
+
         /**
          * {@inheritdoc}
          */
@@ -86,7 +83,7 @@
         {
             return $this;
         }
-        
+
         public static function getConfigCache( $hash ) {
             $cache = apc_fetch(Generic::CACHE_KEY);
             if($cache[0] != $hash) {
@@ -96,12 +93,12 @@
 
             return $cache[1];
         }
-        
+
         public static function setConfigCache( $hash, $config ) {
             Generic::clearConfigCache();
             return apc_store(Generic::CACHE_KEY, array($hash, $config));
         }
-        
+
         public static function clearConfigCache() {
             return apc_delete(Generic::CACHE_KEY);
         }
